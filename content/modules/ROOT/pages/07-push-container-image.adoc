@@ -21,7 +21,7 @@ From `+rhel1+` we’ll push our updated container image to Satellite.
 
 [source,bash,run]
 ----
-podman push satellite.lab/acme_org/bootc/rhel10beta:summit-2025 --tls-verify=false
+podman push satellite.lab/acme_org/bootc/rhel-bootc:satellite-image-mode-lab --tls-verify=false
 ----
 ====
 =====

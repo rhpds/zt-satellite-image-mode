@@ -35,7 +35,7 @@ target field.
 
 [source,js]
 ----
-satellite.lab/acme_org/bootc/rhel10beta:summit-2025
+satellite.lab/acme_org/bootc/rhel-bootc:satellite-image-mode-lab
 ----
 
 [arabic, start=2]
@@ -61,9 +61,9 @@ bootc status
 ----
 
 This shows that we have a staged container image with the label
-`+satellite.lab/acme_org/bootc/rhel10beta:summit-2025+`. However, the
-image mode host `+rhel2+`, is still booted with the old image with the
-label `+quay.io/toharris/rhel-bootc:summit-2025+`.
+`+satellite.lab/acme_org/bootc/rhel-bootc:satellite-image-mode-lab+`.
+However, the image mode host `+rhel2+`, is still booted with the old
+image with the label `+registry.redhat.io/rhel10/rhel-bootc:10.1+`.
 
 .bootc status
 image::bootcstatuscli.png[../assets/bootcstatuscli]
@@ -87,8 +87,8 @@ The terminal will reconnect and display the new message-of-the-day (MOTD).
 .Login with new MOTD
 image::rhel2.lab-login-new-motd.png[motd]
 
-Notice that the message-of-the-day now displays
-`+Welcome to Summit 2025+`.
+Notice that the message-of-the-day now displays a happy face ascii
+image.
 
 And now check the bootc status by running this command in `rhel2.lab terminal`.
 
@@ -102,7 +102,8 @@ image::updatedbootcstatus.png[../assets/updatedbootcstatus]
 
 You can now see that the image mode host `+rhel2+` is now running our
 updated image labelled
-`+satellite.lab/acme_org/bootc/rhel10beta:summit-2025+` and you’ll also
-see that you can roll back to the previous image if required.
+`+satellite.lab/acme_org/bootc/rhel-bootc:satellite-image-mode-lab+`
+and you’ll also see that you can roll back to the previous image if
+required.
 ====
 =====

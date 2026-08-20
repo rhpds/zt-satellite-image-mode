@@ -19,14 +19,14 @@ Click on `+Container Image Tags+`.
 .Container Image Tag
 image::containerimagetags2.png[../assets/containerimagetags2]
 
-Click on the tag `+summit-2025+`.
+Click on the tag `+satellite-image-mode-lab+`.
 
-.summit-2025 tag
+.satellite-image-mode-lab tag
 image::summit-2025.png[../assets/summit-2025]
 
 Click on the `+Lifecycle Environments+` tab.
 
-.summit-2025
+.satellite-image-mode-lab
 image::bootclce.png[../assets/bootclce]
 
 Note the `+Published At+` field on the menu. We’ll need to copy and
@@ -38,7 +38,7 @@ image::publishedat.png[../assets/publishedat]
 
 [source,text]
 ----
-satellite.lab/acme_org/bootc/rhel10beta:summit-2025
+satellite.lab/acme_org/bootc/rhel-bootc:satellite-image-mode-lab
 ----
 
 ====

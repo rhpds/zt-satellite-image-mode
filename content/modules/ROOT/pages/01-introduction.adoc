@@ -22,7 +22,7 @@ Here’s a summary of what we’ll cover in the upcoming modules:
 . *Create an activation key for our image mode host* - Generate an activation key that grants access to the content view used by our image mode host.
 . *Register the image mode host rhel2 to Satellite* - Use the activation key to register `+rhel2+` with Satellite.
 . *Verify image mode host details in Satellite* - Run a Bootc status job against `+rhel2+` and review its image mode details in the Satellite Web UI.
-. *Update the container image* - Use `+rhel1+` to pull down the running container image from quay.io and modify it with a `Containerfile`.
+. *Update the container image* - Use `+rhel1+` to pull down the official `+registry.redhat.io/rhel10/rhel-bootc:10.1+` image and modify it with a `Containerfile`.
 . *Push the new container to Satellite's container registry* - Push the updated container image from `+rhel1+` to the Satellite container registry.
 . *Obtain the container image label* - Locate the label of the newly published container image, which is needed to target it in the next step.
 . *Schedule a Remote Job to initiate an update of our image mode host rhel2* - Schedule a Bootc switch job to update `+rhel2+` to the new image, then reboot and verify the change.
