@@ -31,11 +31,25 @@ bootc-summit
 ----
 
 [arabic, start=2]
+. Click on "`Assign content view environments`".
+
+.Create activation key wizard
+image::new-activation-key.png[]
+
+In the "`Assign content view environments`" menu, do the following:
+
 . Click on "`Library`".
 . Select the "`Default Organization View`" Content View.
 . Click "`Save`".
 
-.Create activation key wizard
-image::createactivationkeysteps.png[../assets/createactivationkeysteps]
+.Assign content view environments
+image::assign-content-view-environments.png[]
+
+You'll return to the "`New Activation Key`" menu.
+
+Click "`Save`".
+
+.New Activation Key - Save
+image::new-activation-key-save.png[]
 ====
 =====

@@ -35,6 +35,9 @@ The lab environment consists of the following
 . Red Hat Satellite Server
 . Two Red Hat Enterprise Linux 10 hosts
 
+.Lab environment
+image::lab-environment.png[Lab environment diagram showing the Satellite server managing rhel1.lab and rhel2.lab]
+
 == Log into the Web UI
 
 First, we’ll log into the Red Hat Satellite Web User Interface (UI).

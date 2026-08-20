@@ -5,31 +5,31 @@ antora:
   modules:
     - name: "01-introduction"
       label: "Introduction"
-      solveButton: false
+      solveButton: true
     - name: "02-create-container-repository"
       label: "Create Container Repository"
-      solveButton: false
+      solveButton: true
     - name: "03-create-activation-key"
       label: "Create Activation Key"
-      solveButton: false
+      solveButton: true
     - name: "04-register-image-mode-host"
       label: "Register Image Mode Host"
-      solveButton: false
+      solveButton: true
     - name: "05-verify-image-mode-host-details"
       label: "Verify Image Mode Host Details"
-      solveButton: false
+      solveButton: true
     - name: "06-update-container-image"
       label: "Update Container Image"
-      solveButton: false
+      solveButton: true
     - name: "07-push-container-image"
       label: "Push Container Image"
-      solveButton: false
+      solveButton: true
     - name: "08-obtain-container-image-label"
       label: "Obtain Container Image Label"
-      solveButton: false
+      solveButton: true
     - name: "09-schedule-remote-job"
       label: "Schedule Remote Job"
-      solveButton: false
+      solveButton: true
 
 tabs:
   - name: "Satellite Web UI"

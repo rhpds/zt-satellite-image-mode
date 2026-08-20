@@ -16,7 +16,13 @@ Navigate back to the Satellite Web UI.
 this link.
 
 .Booted container images
-image::bootedcontainerimagehosts.png[../assets/bootedcontainerimagehosts]
+image::container-images.png[]
+
+Click on the "`Booted`" tab.
+
+.Booted tab
+image::booted-container-images.png[]
+
 
 Next do the following.
 
