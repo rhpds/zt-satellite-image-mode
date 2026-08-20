@@ -1,0 +1,9 @@
+---
+name: modules
+version: master
+
+asciidoc:
+  attributes:
+    lab_name: "Satellite Advanced Topics 6.18"
+    release-version: master
+    page-pagination: true

@@ -1,0 +1,428 @@
+== Image Mode
+
+Image mode is a new approach to operating system (OS) deployment that
+lets users build, deploy, and manage Red Hat Enterprise Linux as a bootc
+container image.
+
+It reduces complexity across the enterprise by letting development,
+operations, and solution providers use the same container-native tools
+and techniques to manage everything from applications to the underlying
+OS.
+
+Red Hat Satellite 6.18 supports the management of RHEL image mode
+systems. In this assignment, we’ll walk through the steps of registering
+and updating an image mode system.
+
+== Create a container repository in Satellite
+
+The first step is to create a container repository in Satellite that will provide a method for storing image mode images.
+
+=====
+.Create a container repository in Satellite
+[%collapsible]
+====
+
+Go to the Satellite Web UI.
+
+You’ll need the following credentials to log into the Satellite Web UI.
+
+You can copy and paste each of them below.
+
+[source,js]
+----
+admin
+----
+
+[source,js]
+----
+bc31c9a6-9ff0-11ec-9587-00155d1b0702
+----
+
+Do the following:
+
+. Click on `+Products+`.
+. Click `+Create Product+`.
+
+.Products
+image::create-product.png[../assets/create-product]
+
+Then we’ll create a product called `+bootc+`.
+
+[arabic]
+. Name the product `+bootc+`.
+
+[source,js]
+----
+bootc
+----
+
+[arabic, start=2]
+. Click on `+Save+`.
+
+.Create Product wizard
+image::createproduct.png[../assets/createproduct]
+====
+=====
+
+== Create an activation key for our image mode host
+
+In this lab environment, we have a ready-built image mode host named
+`+rhel2+`. We will generate an activation key and register `+rhel2+` to
+the Satellite server.
+
+=====
+.Create an activation key for image mode host
+[%collapsible]
+====
+Go to the Activation Keys menu.
+
+.Activation Keys
+image::activationkeys.png[../assets/activationkeys]
+
+Click "`Create Activation Key`".
+
+.Create Activation Key
+image::createactivationkey.png[../assets/createactivationkey]
+
+Do the following to create our activation key.
+
+. Name the key
+`+bootc-summit+`.
+
+[source,js]
+----
+bootc-summit
+----
+
+[arabic, start=2]
+. Click on "`Library`".
+. Select the "`Default Organization View`" Content View.
+. Click "`Save`".
+
+.Create activation key wizard
+image::createactivationkeysteps.png[../assets/createactivationkeysteps]
+====
+=====
+
+== Register the image mode host rhel2 to Satellite
+
+To manage our image mode host, we'll register it with Satellite.
+
+=====
+.Register the image mode host rhel2 with Satellite
+[%collapsible]
+====
+
+Switch to the `satellite.lab terminal`.
+
+.satellite.lab terminal
+image::satellite.lab-terminal.png[]
+
+Run the following script. You can click the run button as shown below to run the script in `satellite.lab terminal`.
+
+.Run button
+image::run-button.png[]
+
+Try it.
+
+[source,bash,run]
+----
+export regscript=$(hammer host-registration generate-command --activation-key bootc-summit --setup-insights 0 --insecure 1 --setup-container-registry-certs true --force 1)
+ssh -o "StrictHostKeyChecking no" root@rhel2 $regscript
+----
+
+Here’s what the successful registration looks like.
+
+.Successful registration
+image::successregisterrhel2.png[]
+====
+=====
+
+== Verify image mode host details in Satellite
+
+Let’s explore the image mode information available in Satellite.
+
+=====
+.View image mode information in Satellite
+[%collapsible]
+====
+Navigate back to the Satellite Web UI.
+
+[arabic]
+. Click on the "`Booted Container images`" menu.
+. You will be able to see that one image mode host is detected. Click on
+this link.
+
+.Booted container images
+image::bootedcontainerimagehosts.png[../assets/bootedcontainerimagehosts]
+
+Next do the following.
+
+. Check the box to the left of the Power button.
+. Select "`Schedule a Job`".
+
+.Schedule remote job
+image::runremotejobrhel2.png[../assets/runremotejobrhel2]
+
+Next we’ll create a job to check bootc status.
+
+. Select the "`Bootc`" job category.
+. Select "`Bootc Script - Script Default`".
+. Click "`Next`".
+
+.Run job wizard
+image::bootcstatusjob.png[../assets/bootcstatusjob]
+
+Next do the following.
+
+. Select "`status`" in the "`action`" dropdown menu.
+. Click "`Run on selected hosts`".
+
+.Run job wizard part 2
+image::bootcstatusjob2.png[../assets/bootcstatusjobpart2]
+
+You'll be taken to the "`Jobs`" menu for this job.
+
+Here you can see lots of information about the current status of the
+bootc system rhel2, including the image it was booted from.
+
+.Job status
+image::rhel2bootcstatusjob.png[../assets/rhel2bootcstatusjob]
+
+Click on "`rhel2.lab`" to get to the host menu.
+
+.Click rhel2.lab
+image::getbacktorhel2.png[../assets/getbacktorhel2]
+
+Click on the details tab.
+
+.Details tab
+image::detailstab.png[../assets/detailstab]
+
+Scroll down to the "`Image mode details`" card.
+
+.Image mode details card
+image::runningimagehostsmenu.png[../assets/runningimagehostsmenu]
+
+Here you can also see the "`Running image`" details which we will need
+to use in the next step. This information is populated only after the
+bootc status job is run or approximately every 4 hours.
+====
+=====
+
+== Update the container image
+
+The container image running on `+rhel2+` is stored in a quay.io
+registry. We want to modify that image. We’ll use the host `+rhel1+` to
+pull down that container image from quay.io and update it.
+
+=====
+.Update the container image
+[%collapsible]
+====
+##Navigate to the `rhel1.lab terminal`##.
+
+Copy and run the script below.
+
+[source,bash,run]
+----
+cat <<EOT > Containerfile
+FROM quay.io/toharris/rhel-bootc:summit-2025
+RUN echo "Welcome to Summit 2025" > /etc/motd
+EOT
+----
+
+This modification will create a new message-of-the-day "`Welcome to
+Summit 2025`" and will be displayed upon login.
+
+Next, let’s build the container from the ContainerFile with the command
+below.
+
+[source,bash,run]
+----
+podman build -f Containerfile -t satellite.lab/acme_org/bootc/rhel10beta:summit-2025
+----
+
+The command we just ran, applies the tag
+`+satellite.lab/acme_org/bootc/rhel10beta:summit-2025+` to our newly
+built container. The tag is the name assigned to the container image in
+the Satellite container registry.
+====
+=====
+
+== Push the new container to Satellite’s container registry
+
+Now we’ll push the updated container image from `rhel1.lab terminal` to the
+Satellite container registry.
+
+=====
+.Push container to Satellite's container registry
+[%collapsible]
+====
+In the `rhel1.lab terminal`, log into Satellite container registry by
+running the following command.
+
+[source,bash,run]
+----
+podman login --tls-verify=false satellite.lab --username admin --password bc31c9a6-9ff0-11ec-9587-00155d1b0702
+----
+
+From `+rhel1+` we’ll push our updated container image to Satellite.
+
+[source,bash,run]
+----
+podman push satellite.lab/acme_org/bootc/rhel10beta:summit-2025 --tls-verify=false
+----
+====
+=====
+
+== Obtain the container image label.
+
+In order to perform maintenance operations with an image mode image, you'll need to specify the version of the image. In this assignment we'll show you how to find it.
+
+=====
+.Obtain the container image label
+[%collapsible]
+====
+
+Go to the `+Products+` menu. Click on the `+bootc+` product.
+
+.bootc product
+image::bootcproduct.png[../assets/bootcproduct]
+
+Click on `+Container Image Tags+`.
+
+.Container Image Tag
+image::containerimagetags2.png[../assets/containerimagetags2]
+
+Click on the tag `+summit-2025+`.
+
+.summit-2025 tag
+image::summit-2025.png[../assets/summit-2025]
+
+Click on the `+Lifecycle Environments+` tab.
+
+.summit-2025
+image::bootclce.png[../assets/bootclce]
+
+Note the `+Published At+` field on the menu. We’ll need to copy and
+paste this value for our next step where we run a scheduled job to tell
+`+rhel2+` to use this new image.
+
+.Published At
+image::publishedat.png[../assets/publishedat]
+
+[source,bash,run]
+----
+satellite.lab/acme_org/bootc/rhel10beta:summit-2025
+----
+
+====
+=====
+
+== Schedule a Remote Job to initiate an update of our image mode host rhel2
+
+Now we'll initiate an operation to update the image on the image mode host.
+
+=====
+.Initiate an update of the image mode host
+[%collapsible]
+====
+
+Let’s schedule a remote job.
+
+. Go to all hosts and check the box for `+rhel2+`.
+. Click on `+Schedule a Job+`.
+
+.Schedule Remote Job
+image::runremotejobrhel2.png[../assets/runremotejobrhel2]
+
+In the Category and template section of the Run job menu, do the
+following.
+. Select the `+Bootc+` Job category.
+. Select the `+Bootc Switch - Script Default+`.
+. Click `+Next+`.
+
+.Bootc switch
+image::bootcswitch.png[../assets/bootcswitch]
+
+In the Target hosts and inputs section of the Run job menu, do the
+following.
+
+. Paste the label of the updated container image in the
+target field.
+
+[source,js]
+----
+satellite.lab/acme_org/bootc/rhel10beta:summit-2025
+----
+
+[arabic, start=2]
+. Click `+Run on selected hosts+` to initiate the job.
+
+.Run job wizard
+image::runonselected.png[../assets/runonselected]
+
+.Success
+image::successjobcompleteimagemodeswitch.png[../assets/successjobcompleteimagemodeswitch]
+
+
+Click on the `rhel2.lab terminal`.
+
+.rhel2.lab terminal
+image::rhel2.lab-terminal.png[]
+
+In this terminal, run the following command to check the status of our image mode host.
+
+[source,bash,run]
+----
+bootc status
+----
+
+This shows that we have a staged container image with the label
+`+satellite.lab/acme_org/bootc/rhel10beta:summit-2025+`. However, the
+image mode host `+rhel2+`, is still booted with the old image with the
+label `+quay.io/toharris/rhel-bootc:summit-2025+`.
+
+.bootc status
+image::bootcstatuscli.png[../assets/bootcstatuscli]
+
+Enter the following to reboot into the new container image.
+
+[source,bash,run]
+----
+reboot
+----
+
+Wait for the `rhel2.lab` system to come back online. You may need to click the `reconnect` button a couple times.
+
+If the terminal looks like it is stuck trying to connect, click on the refresh button:
+
+.Refresh button
+image::rhel2-refresh-button.png[]
+
+The terminal will reconnect and display the new message-of-the-day (MOTD).
+
+.Login with new MOTD
+image::rhel2.lab-login-new-motd.png[motd]
+
+Notice that the message-of-the-day now displays
+`+Welcome to Summit 2025+`.
+
+And now check the bootc status by running this command in `rhel2.lab terminal`.
+
+[source,bash,run]
+----
+bootc status
+----
+
+.bootc status
+image::updatedbootcstatus.png[../assets/updatedbootcstatus]
+
+You can now see that the image mode host `+rhel2+` is now running our
+updated image labelled
+`+satellite.lab/acme_org/bootc/rhel10beta:summit-2025+` and you’ll also
+see that you can roll back to the previous image if required.
+
+====
+=====

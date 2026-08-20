@@ -1,0 +1,21 @@
+---
+antora:
+  name: modules
+  dir: www
+  modules:
+    - name: "01-introduction"
+      label: "Introduction"
+      solveButton: false
+    - name: "02-image-mode"
+      label: "Image Mode"
+      solveButton: false
+
+tabs:
+  - name: "Satellite Web UI"
+    url: https://satellite-${guid}.${domain}/
+  - name: "satellite.lab terminal"
+    url: /wetty_satellite/ssh/root
+  - name: "rhel1.lab terminal"
+    url: /wetty_rhel1/ssh/root
+  - name: "rhel2.lab terminal"
+    url: /wetty_rhel2/ssh/root
