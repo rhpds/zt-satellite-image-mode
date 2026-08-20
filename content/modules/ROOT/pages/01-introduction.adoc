@@ -1,11 +1,39 @@
 :imagesdir: ../assets/images
 
+== Image Mode
+
+Image mode is a new approach to operating system (OS) deployment that
+lets users build, deploy, and manage Red Hat Enterprise Linux as a bootc
+container image.
+
+It reduces complexity across the enterprise by letting development,
+operations, and solution providers use the same container-native tools
+and techniques to manage everything from applications to the underlying
+OS.
+
+Red Hat Satellite 6.19 supports the management of RHEL image mode
+systems. In this assignment, we’ll walk through the steps of registering
+and updating an image mode system.
+
+Here’s a summary of what we’ll cover in the upcoming modules:
+
+[arabic]
+. *Create a container repository in Satellite* - Create a `+bootc+` product and container repository to store image mode images.
+. *Create an activation key for our image mode host* - Generate an activation key that grants access to the content view used by our image mode host.
+. *Register the image mode host rhel2 to Satellite* - Use the activation key to register `+rhel2+` with Satellite.
+. *Verify image mode host details in Satellite* - Run a Bootc status job against `+rhel2+` and review its image mode details in the Satellite Web UI.
+. *Update the container image* - Use `+rhel1+` to pull down the running container image from quay.io and modify it with a `Containerfile`.
+. *Push the new container to Satellite's container registry* - Push the updated container image from `+rhel1+` to the Satellite container registry.
+. *Obtain the container image label* - Locate the label of the newly published container image, which is needed to target it in the next step.
+. *Schedule a Remote Job to initiate an update of our image mode host rhel2* - Schedule a Bootc switch job to update `+rhel2+` to the new image, then reboot and verify the change.
+
+== Lab Environment
+
 The lab environment consists of the following
 
 [arabic]
-. Two Red Hat Satellite Servers (Satellite is preinstalled)
-. One Red Hat Enterprise Linux 9 host
-. One capsule server.
+. Red Hat Satellite Server
+. Two Red Hat Enterprise Linux 10 hosts
 
 == Log into the Web UI
 
