@@ -1,3 +1,5 @@
+:imagesdir: ../assets/images
+
 == Image Mode
 
 Image mode is a new approach to operating system (OS) deployment that
@@ -167,7 +169,7 @@ image::runremotejobrhel2.png[../assets/runremotejobrhel2]
 Next we’ll create a job to check bootc status.
 
 . Select the "`Bootc`" job category.
-. Select "`Bootc Script - Script Default`".
+. Select "`Bootc Action - Script Default`".
 . Click "`Next`".
 
 .Run job wizard
@@ -220,7 +222,7 @@ pull down that container image from quay.io and update it.
 .Update the container image
 [%collapsible]
 ====
-##Navigate to the `rhel1.lab terminal`##.
+##Navigate to the `rhel1.lab terminal` tab##.
 
 Copy and run the script below.
 
