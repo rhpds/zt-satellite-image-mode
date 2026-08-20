@@ -1,0 +1,45 @@
+:imagesdir: ../assets/images
+
+== Obtain the container image label.
+
+In order to perform maintenance operations with an image mode image, you'll need to specify the version of the image. In this assignment we'll show you how to find it.
+
+=====
+.Obtain the container image label
+[%collapsible]
+====
+
+Go to the `+Products+` menu. Click on the `+bootc+` product.
+
+.bootc product
+image::bootcproduct.png[../assets/bootcproduct]
+
+Click on `+Container Image Tags+`.
+
+.Container Image Tag
+image::containerimagetags2.png[../assets/containerimagetags2]
+
+Click on the tag `+summit-2025+`.
+
+.summit-2025 tag
+image::summit-2025.png[../assets/summit-2025]
+
+Click on the `+Lifecycle Environments+` tab.
+
+.summit-2025
+image::bootclce.png[../assets/bootclce]
+
+Note the `+Published At+` field on the menu. We’ll need to copy and
+paste this value for our next step where we run a scheduled job to tell
+`+rhel2+` to use this new image.
+
+.Published At
+image::publishedat.png[../assets/publishedat]
+
+[source,text]
+----
+satellite.lab/acme_org/bootc/rhel10beta:summit-2025
+----
+
+====
+=====

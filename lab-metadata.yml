@@ -1,0 +1,17 @@
+lab:
+  name: "Red Hat Satellite Image Mode"
+  shortname: "zt-satellite-image-mode"
+  maintainer: "Matthew Yee (myee@redhat.com)"
+
+  description:
+    summary: "Learn how to use Red Hat Satellite to manage RHEL image mode systems."
+    goal: "Use Red Hat Satellite to register, update, and manage RHEL image mode (bootc) systems."
+    concepts:
+     - "Satellite"
+     - "Image Mode"
+    use_case: "Manage RHEL image mode (bootc) systems at scale with Red Hat Satellite"
+    time_to_complete: "45"
+
+  git_ref:
+    production: "main"
+    development: "main"

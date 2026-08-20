@@ -1,0 +1,108 @@
+:imagesdir: ../assets/images
+
+== Schedule a Remote Job to initiate an update of our image mode host rhel2
+
+Now we'll initiate an operation to update the image on the image mode host.
+
+=====
+.Initiate an update of the image mode host
+[%collapsible]
+====
+
+Let’s schedule a remote job.
+
+. Go to all hosts and check the box for `+rhel2+`.
+. Click on `+Schedule a Job+`.
+
+.Schedule Remote Job
+image::runremotejobrhel2.png[../assets/runremotejobrhel2]
+
+In the Category and template section of the Run job menu, do the
+following.
+
+. Select the `+Bootc+` Job category.
+. Select the `+Bootc Switch - Script Default+`.
+. Click `+Next+`.
+
+.Bootc switch
+image::bootcswitch.png[../assets/bootcswitch]
+
+In the Target hosts and inputs section of the Run job menu, do the
+following.
+
+. Paste the label of the updated container image in the
+target field.
+
+[source,js]
+----
+satellite.lab/acme_org/bootc/rhel10beta:summit-2025
+----
+
+[arabic, start=2]
+. Click `+Run on selected hosts+` to initiate the job.
+
+.Run job wizard
+image::runonselected.png[../assets/runonselected]
+
+.Success
+image::successjobcompleteimagemodeswitch.png[../assets/successjobcompleteimagemodeswitch]
+
+
+Click on the `rhel2.lab terminal`.
+
+.rhel2.lab terminal
+image::rhel2.lab-terminal.png[]
+
+In this terminal, run the following command to check the status of our image mode host.
+
+[source,bash,run]
+----
+bootc status
+----
+
+This shows that we have a staged container image with the label
+`+satellite.lab/acme_org/bootc/rhel10beta:summit-2025+`. However, the
+image mode host `+rhel2+`, is still booted with the old image with the
+label `+quay.io/toharris/rhel-bootc:summit-2025+`.
+
+.bootc status
+image::bootcstatuscli.png[../assets/bootcstatuscli]
+
+Enter the following to reboot into the new container image.
+
+[source,bash,run]
+----
+reboot
+----
+
+Wait for the `rhel2.lab` system to come back online. You may need to click the `reconnect` button a couple times.
+
+If the terminal looks like it is stuck trying to connect, click on the refresh button:
+
+.Refresh button
+image::rhel2-refresh-button.png[]
+
+The terminal will reconnect and display the new message-of-the-day (MOTD).
+
+.Login with new MOTD
+image::rhel2.lab-login-new-motd.png[motd]
+
+Notice that the message-of-the-day now displays
+`+Welcome to Summit 2025+`.
+
+And now check the bootc status by running this command in `rhel2.lab terminal`.
+
+[source,bash,run]
+----
+bootc status
+----
+
+.bootc status
+image::updatedbootcstatus.png[../assets/updatedbootcstatus]
+
+You can now see that the image mode host `+rhel2+` is now running our
+updated image labelled
+`+satellite.lab/acme_org/bootc/rhel10beta:summit-2025+` and you’ll also
+see that you can roll back to the previous image if required.
+====
+=====

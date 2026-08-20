@@ -1,0 +1,41 @@
+:imagesdir: ../assets/images
+
+== Create an activation key for our image mode host
+
+In this lab environment, we have a ready-built image mode host named
+`+rhel2+`. We will generate an activation key and register `+rhel2+` to
+the Satellite server.
+
+=====
+.Create an activation key for image mode host
+[%collapsible]
+====
+Go to the Activation Keys menu.
+
+.Activation Keys
+image::activationkeys.png[../assets/activationkeys]
+
+Click "`Create Activation Key`".
+
+.Create Activation Key
+image::createactivationkey.png[../assets/createactivationkey]
+
+Do the following to create our activation key.
+
+. Name the key
+`+bootc-summit+`.
+
+[source,js]
+----
+bootc-summit
+----
+
+[arabic, start=2]
+. Click on "`Library`".
+. Select the "`Default Organization View`" Content View.
+. Click "`Save`".
+
+.Create activation key wizard
+image::createactivationkeysteps.png[../assets/createactivationkeysteps]
+====
+=====

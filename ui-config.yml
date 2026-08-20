@@ -9,6 +9,30 @@ antora:
     - name: "02-image-mode"
       label: "Image Mode"
       solveButton: false
+    - name: "03-create-container-repository"
+      label: "Create Container Repository"
+      solveButton: false
+    - name: "04-create-activation-key"
+      label: "Create Activation Key"
+      solveButton: false
+    - name: "05-register-image-mode-host"
+      label: "Register Image Mode Host"
+      solveButton: false
+    - name: "06-verify-image-mode-host-details"
+      label: "Verify Image Mode Host Details"
+      solveButton: false
+    - name: "07-update-container-image"
+      label: "Update Container Image"
+      solveButton: false
+    - name: "08-push-container-image"
+      label: "Push Container Image"
+      solveButton: false
+    - name: "09-obtain-container-image-label"
+      label: "Obtain Container Image Label"
+      solveButton: false
+    - name: "10-schedule-remote-job"
+      label: "Schedule Remote Job"
+      solveButton: false
 
 tabs:
   - name: "Satellite Web UI"

@@ -1,0 +1,52 @@
+:imagesdir: ../assets/images
+
+== Create a container repository in Satellite
+
+The first step is to create a container repository in Satellite that will provide a method for storing image mode images.
+
+=====
+.Create a container repository in Satellite
+[%collapsible]
+====
+
+Go to the Satellite Web UI.
+
+You’ll need the following credentials to log into the Satellite Web UI.
+
+You can copy and paste each of them below.
+
+[source,js]
+----
+admin
+----
+
+[source,js]
+----
+bc31c9a6-9ff0-11ec-9587-00155d1b0702
+----
+
+Do the following:
+
+. Click on `+Products+`.
+. Click `+Create Product+`.
+
+.Products
+image::create-product.png[../assets/create-product]
+
+Then we’ll create a product called `+bootc+`.
+
+[arabic]
+. Name the product `+bootc+`.
+
+[source,js]
+----
+bootc
+----
+
+[arabic, start=2]
+. Click on `+Save+`.
+
+.Create Product wizard
+image::createproduct.png[../assets/createproduct]
+====
+=====

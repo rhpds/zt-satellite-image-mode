@@ -4,6 +4,6 @@ version: master
 
 asciidoc:
   attributes:
-    lab_name: "Satellite Advanced Topics 6.18"
+    lab_name: "Satellite Image Mode 6.19"
     release-version: master
     page-pagination: true

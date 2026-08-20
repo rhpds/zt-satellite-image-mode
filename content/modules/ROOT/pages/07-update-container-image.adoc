@@ -1,0 +1,41 @@
+:imagesdir: ../assets/images
+
+== Update the container image
+
+The container image running on `+rhel2+` is stored in a quay.io
+registry. We want to modify that image. We’ll use the host `+rhel1+` to
+pull down that container image from quay.io and update it.
+
+=====
+.Update the container image
+[%collapsible]
+====
+##Navigate to the `rhel1.lab terminal` tab##.
+
+Copy and run the script below.
+
+[source,bash,run]
+----
+cat <<EOT > Containerfile
+FROM quay.io/toharris/rhel-bootc:summit-2025
+RUN echo "Welcome to Summit 2025" > /etc/motd
+EOT
+----
+
+This modification will create a new message-of-the-day "`Welcome to
+Summit 2025`" and will be displayed upon login.
+
+Next, let’s build the container from the ContainerFile with the command
+below.
+
+[source,bash,run]
+----
+podman build -f Containerfile -t satellite.lab/acme_org/bootc/rhel10beta:summit-2025
+----
+
+The command we just ran, applies the tag
+`+satellite.lab/acme_org/bootc/rhel10beta:summit-2025+` to our newly
+built container. The tag is the name assigned to the container image in
+the Satellite container registry.
+====
+=====
