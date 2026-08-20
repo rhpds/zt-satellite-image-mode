@@ -314,7 +314,7 @@ paste this value for our next step where we run a scheduled job to tell
 .Published At
 image::publishedat.png[../assets/publishedat]
 
-[source,bash,run]
+[source,text]
 ----
 satellite.lab/acme_org/bootc/rhel10beta:summit-2025
 ----
@@ -341,6 +341,7 @@ image::runremotejobrhel2.png[../assets/runremotejobrhel2]
 
 In the Category and template section of the Run job menu, do the
 following.
+
 . Select the `+Bootc+` Job category.
 . Select the `+Bootc Switch - Script Default+`.
 . Click `+Next+`.
