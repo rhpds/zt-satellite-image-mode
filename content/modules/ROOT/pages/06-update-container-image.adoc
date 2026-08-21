@@ -7,6 +7,8 @@ The container image running on `+rhel2+` is based on the official
 that image. We’ll use the host `+rhel1+` to pull down the official
 image and customize it.
 
+NOTE: For the purposes of this lab, the rhel10/rhel-bootc:10.1 image is already present on the host `+rhel1+`. If you are not using the provided lab environment, you will need to pull the image down from the Red Hat Container Registry. You will have to log into the Red Hat Container Registry using your Red Hat account credentials using the `+podman login registry.redhat.io+` command.
+
 =====
 ##Navigate to the `rhel1.lab terminal` tab##.
 
