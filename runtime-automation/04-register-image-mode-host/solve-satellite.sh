@@ -6,7 +6,7 @@ ORG="Acme Org"
 # Generate the host registration command for our activation key and
 # register the image mode host rhel2 to Satellite.
 export regscript=$(hammer host-registration generate-command \
-  --activation-key "bootc-summit" \
+  --activation-key "bootc" \
   --organization "$ORG" \
   --setup-insights 0 \
   --insecure 1 \

@@ -21,11 +21,11 @@ image::createactivationkey.png[../assets/createactivationkey]
 Do the following to create our activation key.
 
 . Name the key
-`+bootc-summit+`.
+`+bootc+`.
 
 [source,js]
 ----
-bootc-summit
+bootc
 ----
 
 [arabic, start=2]

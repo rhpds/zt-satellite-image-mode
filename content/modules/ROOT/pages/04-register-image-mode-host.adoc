@@ -20,7 +20,7 @@ Try it.
 
 [source,bash,run]
 ----
-export regscript=$(hammer host-registration generate-command --activation-key bootc-summit --setup-insights 0 --insecure 1 --setup-container-registry-certs true --force 1)
+export regscript=$(hammer host-registration generate-command --activation-key bootc --setup-insights 0 --insecure 1 --setup-container-registry-certs true --force 1)
 ssh -o "StrictHostKeyChecking no" root@rhel2 $regscript
 ----
 
