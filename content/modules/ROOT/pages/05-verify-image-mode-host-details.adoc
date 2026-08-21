@@ -11,7 +11,7 @@ Let’s explore the image mode information available in Satellite.
 Navigate back to the Satellite Web UI.
 
 [arabic]
-. Click on the "`Booted Container images`" menu.
+. Click on the "`Container images`" menu.
 . You will be able to see that one image mode host is detected. Click on
 this link.
 
@@ -23,6 +23,11 @@ Click on the "`Booted`" tab.
 .Booted tab
 image::booted-container-images.png[]
 
+Next, click on "`Hosts`" button.
+
+.Hosts button
+image::container-images-host.png[]
+
 ====
 =====
 
@@ -32,7 +37,7 @@ image::booted-container-images.png[]
 ====
 Next do the following.
 
-. Check the box to the left of the Power button.
+. Check the box for "`rhel2.lab`".
 . Select "`Schedule a Job`".
 
 .Schedule remote job
@@ -41,19 +46,11 @@ image::runremotejobrhel2.png[../assets/runremotejobrhel2]
 Next we’ll create a job to check bootc status.
 
 . Select the "`Bootc`" job category.
-. Select "`Bootc Action - Script Default`".
-. Click "`Next`".
-
-.Run job wizard
-image::bootcstatusjob.png[../assets/bootcstatusjob]
-
-Next do the following.
-
-. Select "`status`" in the "`action`" dropdown menu.
+. Select "`Bootc Status - Script Default`".
 . Click "`Run on selected hosts`".
 
-.Run job wizard part 2
-image::bootcstatusjob2.png[../assets/bootcstatusjobpart2]
+.Run job wizard
+image::bootc-status-script-default.png[../assets/bootcstatusjob]
 
 You'll be taken to the "`Jobs`" menu for this job.
 
@@ -82,7 +79,7 @@ image::detailstab.png[../assets/detailstab]
 Scroll down to the "`Image mode details`" card.
 
 .Image mode details card
-image::runningimagehostsmenu.png[../assets/runningimagehostsmenu]
+image::runningimagehostsmenu.png[]
 
 Here you can also see the "`Running image`" details which we will need
 to use in the next step. This information is populated only after the
