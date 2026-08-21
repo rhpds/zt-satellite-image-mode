@@ -28,7 +28,7 @@ following.
 image::bootcswitch.png[../assets/bootcswitch]
 
 In the Target hosts and inputs section of the Run job menu, do the
-following.
+following. This will target the image mode host `+rhel2+` and update it to the new container image stored in the Satellite container registry.
 
 . Paste the label of the updated container image in the
 target field.
@@ -111,7 +111,7 @@ bootc status
 ----
 
 .bootc status
-image::updatedbootcstatus.png[../assets/updatedbootcstatus]
+image::updatedbootcstatus.png[]
 
 You can now see that the image mode host `+rhel2+` is now running our
 updated image labelled
