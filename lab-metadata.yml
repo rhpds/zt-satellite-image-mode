@@ -10,7 +10,7 @@ lab:
      - "Satellite"
      - "Image Mode"
     use_case: "Manage RHEL image mode (bootc) systems at scale with Red Hat Satellite"
-    time_to_complete: "45"
+    time_to_complete: "30"
 
   git_ref:
     production: "main"
