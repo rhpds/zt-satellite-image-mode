@@ -47,7 +47,13 @@ image::runonselected.png[../assets/runonselected]
 .Success
 image::successjobcompleteimagemodeswitch.png[../assets/successjobcompleteimagemodeswitch]
 
+====
+=====
 
+=====
+.Check the status of the image mode host
+[%collapsible]
+====
 Click on the `rhel2.lab terminal`.
 
 .rhel2.lab terminal
@@ -68,7 +74,14 @@ image with the label `+registry.redhat.io/rhel10/rhel-bootc:10.1+`.
 .bootc status
 image::bootcstatuscli.png[../assets/bootcstatuscli]
 
-Enter the following to reboot into the new container image.
+====
+=====
+
+=====
+.Reboot into the new container image
+[%collapsible]
+====
+In the `rhel2.lab terminal`, enter the following to reboot into the new container image.
 
 [source,bash,run]
 ----

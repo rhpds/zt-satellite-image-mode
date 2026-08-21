@@ -8,9 +8,6 @@ that image. We’ll use the host `+rhel1+` to pull down the official
 image and customize it.
 
 =====
-.Update the container image
-[%collapsible]
-====
 ##Navigate to the `rhel1.lab terminal` tab##.
 
 Copy and run the script below.
@@ -38,5 +35,5 @@ The command we just ran, applies the tag
 `+satellite.lab/acme_org/bootc/rhel-bootc:satellite-image-mode-lab+` to
 our newly built container. The tag is the name assigned to the container
 image in the Satellite container registry.
-====
+
 =====

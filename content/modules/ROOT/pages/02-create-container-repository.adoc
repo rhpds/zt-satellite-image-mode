@@ -5,9 +5,6 @@
 The first step is to create a container repository in Satellite that will provide a method for storing image mode images.
 
 =====
-.Create a container repository in Satellite
-[%collapsible]
-====
 
 Go to the Satellite Web UI.
 
@@ -48,5 +45,5 @@ bootc
 
 .Create Product wizard
 image::createproduct.png[../assets/createproduct]
-====
+
 =====

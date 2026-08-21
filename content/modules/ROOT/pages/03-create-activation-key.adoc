@@ -7,9 +7,7 @@ In this lab environment, we have a ready-built image mode host named
 the Satellite server.
 
 =====
-.Create an activation key for image mode host
-[%collapsible]
-====
+
 Go to the Activation Keys menu.
 
 .Activation Keys
@@ -51,5 +49,5 @@ Click "`Save`".
 
 .New Activation Key - Save
 image::new-activation-key-save.png[]
-====
+
 =====

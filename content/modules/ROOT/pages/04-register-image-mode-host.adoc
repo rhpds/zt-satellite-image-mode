@@ -5,9 +5,6 @@
 To manage our image mode host, we'll register it with Satellite.
 
 =====
-.Register the image mode host rhel2 with Satellite
-[%collapsible]
-====
 
 Switch to the `satellite.lab terminal`.
 
@@ -31,5 +28,5 @@ Here’s what the successful registration looks like.
 
 .Successful registration
 image::successregisterrhel2.png[]
-====
+
 =====

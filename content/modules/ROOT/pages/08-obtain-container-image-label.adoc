@@ -5,9 +5,7 @@
 In order to perform maintenance operations with an image mode image, you'll need to specify the version of the image. In this assignment we'll show you how to find it.
 
 =====
-.Obtain the container image label
-[%collapsible]
-====
+
 
 Go to the `+Products+` menu. Click on the `+bootc+` product.
 
@@ -41,5 +39,5 @@ image::publishedat.png[../assets/publishedat]
 satellite.lab/acme_org/bootc/rhel-bootc:satellite-image-mode-lab
 ----
 
-====
+
 =====

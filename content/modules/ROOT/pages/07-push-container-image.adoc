@@ -6,9 +6,7 @@ Now we’ll push the updated container image from `rhel1.lab terminal` to the
 Satellite container registry.
 
 =====
-.Push container to Satellite's container registry
-[%collapsible]
-====
+
 In the `rhel1.lab terminal`, log into Satellite container registry by
 running the following command.
 
@@ -17,11 +15,11 @@ running the following command.
 podman login --tls-verify=false satellite.lab --username admin --password bc31c9a6-9ff0-11ec-9587-00155d1b0702
 ----
 
-From `+rhel1+` we’ll push our updated container image to Satellite.
+From `+rhel1+` we’ll push our updated container image to Satellite by running the following command.
 
 [source,bash,run]
 ----
 podman push satellite.lab/acme_org/bootc/rhel-bootc:satellite-image-mode-lab --tls-verify=false
 ----
-====
+
 =====
