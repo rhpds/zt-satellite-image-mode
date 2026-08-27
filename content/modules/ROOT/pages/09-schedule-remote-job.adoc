@@ -11,7 +11,7 @@ Now we'll initiate an operation to update the image on the image mode host.
 
 Let’s schedule a remote job.
 
-. Go to all hosts and check the box for `+rhel2+`.
+. Go to `+Hosts+` -> `+All Hosts+` and check the box for `+rhel2+`.
 . Click on `+Schedule a Job+`.
 
 .Schedule Remote Job
