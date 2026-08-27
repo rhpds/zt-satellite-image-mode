@@ -23,7 +23,7 @@ Click on the "`Booted`" tab.
 .Booted tab
 image::booted-container-images.png[]
 
-Next, click on "`Hosts`" button.
+Next, under the "`Hosts`" column, click on number `1` link.
 
 .Hosts button
 image::container-images-host.png[]
