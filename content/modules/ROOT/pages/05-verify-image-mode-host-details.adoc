@@ -11,12 +11,12 @@ Let’s explore the image mode information available in Satellite.
 Navigate back to the Satellite Web UI.
 
 [arabic]
-. Click on the "`Container images`" menu.
-. You will be able to see that one image mode host is detected. Click on
-this link.
+1. Click on the "`Container images`" menu.
 
 .Booted container images
 image::container-images.png[]
+
+2. You will be able to see that one image mode host is detected.
 
 Click on the "`Booted`" tab.
 
