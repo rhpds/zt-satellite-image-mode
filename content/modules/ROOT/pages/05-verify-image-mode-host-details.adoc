@@ -11,19 +11,19 @@ Let’s explore the image mode information available in Satellite.
 Navigate back to the Satellite Web UI.
 
 [arabic]
-. Click on the "`Container images`" menu.
-. You will be able to see that one image mode host is detected. Click on
-this link.
+1. Click on the "`Container images`" menu.
 
 .Booted container images
 image::container-images.png[]
+
+2. You will be able to see that one image mode host is detected.
 
 Click on the "`Booted`" tab.
 
 .Booted tab
 image::booted-container-images.png[]
 
-Next, click on "`Hosts`" button.
+Next, under the "`Hosts`" column, click on number `1` link.
 
 .Hosts button
 image::container-images-host.png[]
@@ -53,6 +53,8 @@ Next we’ll create a job to check bootc status.
 image::bootc-status-script-default.png[../assets/bootcstatusjob]
 
 You'll be taken to the "`Jobs`" menu for this job.
+
+Expand the job output, by clicking on the accordion button next to the server name `rhel2.lab`.
 
 Here you can see lots of information about the current status of the
 bootc system rhel2, including the image it was booted from.

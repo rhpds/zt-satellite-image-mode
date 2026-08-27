@@ -11,7 +11,7 @@ Now we'll initiate an operation to update the image on the image mode host.
 
 Let’s schedule a remote job.
 
-. Go to all hosts and check the box for `+rhel2+`.
+. Go to `+Hosts+` -> `+All Hosts+` and check the box for `+rhel2+`.
 . Click on `+Schedule a Job+`.
 
 .Schedule Remote Job
@@ -43,6 +43,10 @@ satellite.lab/acme_org/bootc/rhel-bootc:satellite-image-mode-lab
 
 .Run job wizard
 image::runonselected.png[../assets/runonselected]
+
+You'll be taken to the "`Jobs`" menu for this job.
+
+Expand the job output, by clicking on the accordion button next to the server name `rhel2.lab`.
 
 .Success
 image::successjobcompleteimagemodeswitch.png[../assets/successjobcompleteimagemodeswitch]

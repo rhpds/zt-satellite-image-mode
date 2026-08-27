@@ -7,7 +7,7 @@ In order to perform maintenance operations with an image mode image, you'll need
 =====
 
 
-Go to the `+Products+` menu. Click on the `+bootc+` product.
+Under `+Content+`, Go to the `+Products+` menu. Click on the `+bootc+` product.
 
 .bootc product
 image::bootcproduct.png[../assets/bootcproduct]
@@ -20,7 +20,7 @@ image::containerimagetags2.png[../assets/containerimagetags2]
 Click on the tag `+satellite-image-mode-lab+`.
 
 .satellite-image-mode-lab tag
-image::summit-2025.png[../assets/summit-2025]
+image::satellite-image-mode-lab.png[../assets/satellite-image-mode-lab]
 
 Click on the `+Lifecycle Environments+` tab.
 
