@@ -54,6 +54,8 @@ image::bootc-status-script-default.png[../assets/bootcstatusjob]
 
 You'll be taken to the "`Jobs`" menu for this job.
 
+Expand the job output, by clicking on the accordion button next to the server name `rhel2.lab`.
+
 Here you can see lots of information about the current status of the
 bootc system rhel2, including the image it was booted from.
 
