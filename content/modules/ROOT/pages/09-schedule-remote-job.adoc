@@ -44,6 +44,10 @@ satellite.lab/acme_org/bootc/rhel-bootc:satellite-image-mode-lab
 .Run job wizard
 image::runonselected.png[../assets/runonselected]
 
+You'll be taken to the "`Jobs`" menu for this job.
+
+Expand the job output, by clicking on the accordion button next to the server name `rhel2.lab`.
+
 .Success
 image::successjobcompleteimagemodeswitch.png[../assets/successjobcompleteimagemodeswitch]
 
