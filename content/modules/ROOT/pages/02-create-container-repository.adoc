@@ -22,7 +22,7 @@ admin
 bc31c9a6-9ff0-11ec-9587-00155d1b0702
 ----
 
-Do the following:
+In the left bar, under `+Content+` menu:
 
 . Click on `+Products+`.
 . Click `+Create Product+`.
